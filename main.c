@@ -1,10 +1,5 @@
 /*
 Simple raycaster
-https://www.youtube.com/watch?v=gYRrGTC7GtA
-
-to compile on windows with cygwin
-gcc .\main.c -lglut -lOpengl32 -lglu32
-
 */
 #include <stdio.h>
 #include <stdlib.h>

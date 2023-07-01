@@ -1,6 +1,8 @@
 CC = gcc
-CFLAGS = -g -Wall -Wno-deprecated
+CFLAGS = -g -Wall
 OS = $(shell uname)
+
+BIN=raycaster
 
 ifeq ($(OS), Darwin)
 	LIBS = -framework OpenGL -framework GLUT
@@ -13,13 +15,11 @@ else
 	LIBS = -lglut -lOpengl32 -lglu32
 endif
 
-sample: sample.o
-	$(CC) $(CFLAGS) -o $@ $< $(LIBS)
+all: #$(BIN)
+	$(CC) main.c $(CFLAGS) -o $(BIN) $(LIBS)
 
-.o:.c
-	$(CC) $(CFLAGS) -c $<
+#%: %.c
+#	$(CC) $(CFLAGS) $< -o $@ $(LIBS)
 
-clean: FORCE
-	-rm -f *.o *~ sample *core*
-
-FORCE:
+clean:
+	$(RM) -rf $(BIN) *.dSYM
